@@ -1,5 +1,7 @@
 import React from 'react';
 
+import TextField from '@mui/material/TextField';
+
 class TaskInput extends React.Component{
 	constructor(props){
 		super(props);
@@ -19,9 +21,7 @@ class TaskInput extends React.Component{
 
 	render() {
 		return (
-		<label htmlFor="task-input">Tarea 
-		<input type="text" id="task-input" onChange={this.handleChange} value={this.props.value}/>
-		</label>
+		<TextField label="Tarea" onChange={this.handleChange} value={this.props.value}/>
 		);
 	}
 }
