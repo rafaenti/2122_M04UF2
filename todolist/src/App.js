@@ -10,11 +10,28 @@ class App extends React.Component{
 		this.state = {
 			tasks: []
 		};
+		console.log("Entrando");
 	}
 
-	addTask = task => {
-		console.log(task);
+/*
+	componentDidMount = () =>{
+		fetch("http://10.40.2.31:3030/")
+			.then(response => response.json())
+			.then(data => this.setTasks(data));
+	}
+*/
+	setTasks = data => {
+		let tasks = [];
+		for (let i = 0; i < data.length; i++)
+			tasks.push(data[i].task);
 
+		this.state.tasks = tasks;
+		this.setState({
+			tasks: this.state.tasks
+		});
+	};
+
+	addTask = task => {
 		this.state.tasks.push(task);
 		this.setState({
 			tasks: this.state.tasks
@@ -31,6 +48,7 @@ class App extends React.Component{
 
 
 	render(){
+		console.log(this.state.tasks);
 		return (
 <div className="App">
 <Title />
